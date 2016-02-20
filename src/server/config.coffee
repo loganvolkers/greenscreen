@@ -15,7 +15,15 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 fs = require "fs"
 
 module.exports = try
-  JSON.parse fs.readFileSync("#{__dirname}/../../config.json")
+  @conf = JSON.parse fs.readFileSync("#{__dirname}/../../config.json")
+  
+  config.couch.db = if process.env.COUCH_DB then process.env.COUCH_DB else config.couch.db
+  config.couch.host = if process.env.COUCH_HOST then process.env.COUCH_HOST else config.couch.host
+  config.couch.port = if process.env.COUCH_PORT then process.env.COUCH_PORT else config.couch.port
+  
+  config.server.port = if process.env.SERVER_PORT then process.env.SERVER_PORT else config.server.port
+
+  @conf
 catch e
   console.warn "Error loading config.json", e
   {}
