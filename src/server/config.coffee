@@ -20,6 +20,8 @@ module.exports = try
   config.couch.db = if process.env.COUCH_DB then process.env.COUCH_DB else config.couch.db
   config.couch.host = if process.env.COUCH_HOST then process.env.COUCH_HOST else config.couch.host
   config.couch.port = if process.env.COUCH_PORT then process.env.COUCH_PORT else config.couch.port
+  config.couch.user = if process.env.COUCH_USER then process.env.COUCH_USER else config.couch.user
+  config.couch.pass = if process.env.COUCH_PASS then process.env.COUCH_PASS else config.couch.pass
   
   config.server.port = if process.env.PORT then process.env.PORT else config.server.port
 
