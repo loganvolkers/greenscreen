@@ -21,7 +21,7 @@ module.exports = try
   config.couch.host = if process.env.COUCH_HOST then process.env.COUCH_HOST else config.couch.host
   config.couch.port = if process.env.COUCH_PORT then process.env.COUCH_PORT else config.couch.port
   
-  config.server.port = if process.env.SERVER_PORT then process.env.SERVER_PORT else config.server.port
+  config.server.port = if process.env.PORT then process.env.PORT else config.server.port
 
   @conf
 catch e
